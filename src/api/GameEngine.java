@@ -1,18 +1,26 @@
 package api;
 
+import boards.TicTacToe;
+import boards.TicTacToeBoard;
 import game.Board;
 import game.GameResult;
 import game.Move;
 import game.Player;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class GameEngine {
-    public Board start(){
-        return new Board();
+    public Board start(String type){
+        if (type.equals("TicTacToe")){
+            return new TicTacToeBoard();
+        } else{
+            throw new IllegalArgumentException();
+        }
     }
     public void move(Board board, Player player, Move move){
-
+        if(board instanceof TicTacToeBoard){
+            board.setCell(player.symbol(), Move.getCell());
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
     public GameResult isComplete(Board board){
 
