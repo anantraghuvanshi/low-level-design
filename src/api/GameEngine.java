@@ -1,6 +1,5 @@
 package api;
 
-import boards.TicTacToe;
 import boards.TicTacToeBoard;
 import game.Board;
 import game.GameResult;
@@ -17,7 +16,8 @@ public class GameEngine {
     }
     public void move(Board board, Player player, Move move){
         if(board instanceof TicTacToeBoard){
-            board.setCell(player.symbol(), Move.getCell());
+            TicTacToeBoard board1 = (TicTacToeBoard) board;
+            board1.setCell(player.symbol(), Move.getCell());
         } else {
             throw new IllegalArgumentException();
         }
