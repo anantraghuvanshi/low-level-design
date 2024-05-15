@@ -2,7 +2,7 @@ package game;
 
 public class Move {
     private Player player;
-    private Cell cell;
+    private static Cell cell;
 
     public Move(Cell cell, Player player) {
         this.cell = cell;
